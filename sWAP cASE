@@ -1,0 +1,10 @@
+def swap_case(s):
+    out = ""
+    for c in s:
+        out += c.upper() if c.islower() else c.lower()              
+    return out
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)

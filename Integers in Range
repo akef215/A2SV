@@ -1,0 +1,18 @@
+class Solution(object):
+    def isCovered(self, ranges, left, right):
+        """
+        :type ranges: List[List[int]]
+        :type left: int
+        :type right: int
+        :rtype: bool
+        """
+        checked = (right - left + 1) * [False]
+        for l in ranges:
+            for i in range(l[0], l[1] + 1):
+                if i >= left and right >= i:
+                    checked[i - left] = True
+        for i in checked:
+            if not i:
+                return False
+        return True                    
+        

@@ -1,0 +1,19 @@
+class Solution(object):
+    def findWinners(self, matches):
+        """
+        :type matches: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        answer = [[], []]
+        loss = dict()
+        for match in matches:
+            loss.setdefault(match[0], 0)
+            loss[match[1]] = loss.setdefault(match[1], 0) + 1
+        for i in loss:
+            if loss[i] == 0:
+                answer[0].append(i)
+            elif loss[i] == 1:
+                answer[1].append(i)
+        answer[0].sort()
+        answer[1].sort()        
+        return answer 

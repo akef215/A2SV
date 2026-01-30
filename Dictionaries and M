@@ -1,0 +1,12 @@
+import sys
+n = int(input())
+phone_book = dict()
+for _ in range(n):
+    s = input().split()
+    phone_book[s[0]] = int(s[1])
+for s in sys.stdin:
+    s = s.strip()
+    if phone_book.get(s):
+        print(f"{s}={phone_book.get(s)}")
+    else:
+        print("Not found") 

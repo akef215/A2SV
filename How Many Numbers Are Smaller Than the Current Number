@@ -1,0 +1,17 @@
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        count = {}
+        for i, n in enumerate(nums):
+            count.setdefault(n, []).append(i)
+        sorted_nums = sorted(nums)
+        i = 0
+        while i < len(nums):
+            n = sorted_nums[i]
+            for j in count[n]:
+                nums[j] = i
+            i += len(count[n])  
+        return nums 

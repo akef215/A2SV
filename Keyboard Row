@@ -1,0 +1,23 @@
+class Solution(object):
+    def test(self, s1, s2):
+        if len(s1) > len(s2):
+            return False
+        for i in range(len(s1)):
+            if s1[i] not in s2:
+                return False
+        return True        
+    def findWords(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[str]
+        """
+        first_row = "qwertyuiop"
+        second_row = "asdfghjkl"
+        third_row = "zxcvbnm"
+        ans = []
+        for word in words:
+            w = "".join(list(set(word.lower())))
+            print(self.test(w, first_row))
+            if self.test(w, first_row) or self.test(w, second_row) or self.test(w, third_row):
+                ans.append(word)
+        return ans        

@@ -1,0 +1,24 @@
+class Solution(object):
+    def spiralOrder(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        ans = []
+        # direct : {0, 1, 2, 3} -> {right, down, left, top}
+        direct = 0
+        while matrix:
+            if direct == 0:
+                ans.extend(matrix.pop(0))
+            elif direct == 1:
+                for i in range(len(matrix)):
+                    if matrix[i]:
+                        ans.append(matrix[i].pop())
+            elif direct == 2:
+                ans.extend(reversed(matrix.pop()))
+            else: 
+                for i in reversed(range(len(matrix))):
+                    if matrix[i]:
+                        ans.append(matrix[i].pop(0))
+            direct = (direct + 1) % 4
+        return ans              

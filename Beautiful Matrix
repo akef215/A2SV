@@ -1,0 +1,8 @@
+a = []
+r, c = -1, -1
+for i in range(5):
+    b = list(map(int, input().split()))
+    a.append(b)
+    if 1 in b:
+        r, c = i, b.index(1)
+print(abs(2-r) + abs(2-c))        

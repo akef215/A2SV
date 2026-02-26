@@ -1,0 +1,13 @@
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+    arr.sort()
+    pos = True
+    while len(arr) != 1:
+        if abs(arr[0] - arr[1]) <= 1:
+            arr.pop(0)
+        else:
+            pos = False
+            break    
+    print("YES" if pos else "NO") 

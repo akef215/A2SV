@@ -1,0 +1,16 @@
+class Solution(object):
+    def targetIndices(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        nums.sort()
+        out=[]
+        i=0
+        while i < len(nums) and nums[i] <= target:  
+            if nums[i]==target:
+                out.append(i)
+            i+=1
+        return out        
+        

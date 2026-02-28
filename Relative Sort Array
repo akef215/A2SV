@@ -1,0 +1,17 @@
+class Solution(object):
+    def relativeSortArray(self, arr1, arr2):
+        """
+        :type arr1: List[int]
+        :type arr2: List[int]
+        :rtype: List[int]
+        """
+        p1 = []
+        p2 = []
+        for x in arr1:
+            if x in arr2:
+                p1.append(x)
+            else:
+                p2.append(x)    
+        p1.sort(key=lambda x : arr2.index(x))
+        p2.sort()
+        return p1+p2

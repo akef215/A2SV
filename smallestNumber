@@ -1,0 +1,21 @@
+class Solution(object):
+    def smallestNumber(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        if num > 0:
+            s = sorted(str(num))
+            i = 0
+            while i < len(s) and s[i] == '0':
+                i += 1
+
+            if i < len(s):
+                s[0], s[i] = s[i], s[0]
+
+            return int("".join(s))
+        elif num == 0:
+            return 0
+        else:            
+            s = reversed(sorted(str(num)[1:]))
+            return -1 * int("".join(s))

@@ -1,0 +1,12 @@
+n, m =  map(int, input().split())
+a = list(map(int, input().split())) 
+b = list(map(int, input().split()))
+c = []
+i, j = 0, 0
+while j < m:
+    while i < n and b[j] > a[i]:
+        i += 1
+    else:
+        c.append(i)
+    j += 1     
+print(*c)

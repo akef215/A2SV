@@ -1,0 +1,10 @@
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        uniq = list(set(nums))
+        nums[:len(uniq)] = sorted(uniq)
+        return len(uniq)
+        

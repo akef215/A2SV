@@ -1,0 +1,14 @@
+class Solution(object):
+    def frequencySort(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        freq = {}
+        for c in s:
+            freq.setdefault(c, 0)
+            freq[c] += 1
+        out = ""
+        for c in sorted(freq, key=lambda x:-freq[x]):
+            out += c * freq[c]    
+        return out

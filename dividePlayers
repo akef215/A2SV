@@ -1,0 +1,23 @@
+class Solution(object):
+    def dividePlayers(self, skill):
+        """
+        :type skill: List[int]
+        :rtype: int
+        """
+        n = len(skill)
+        s = sum(skill)
+        if n == 2:
+            return skill[0] * skill[1]
+        if s % (n // 2) == 0:
+            required = 2 * s // n
+            print(required) 
+            skill.sort()
+            chem = 0
+            while skill:
+                a, b = skill.pop(), skill.pop(0)
+                if a + b != required:
+                    return -1
+                chem += a*b  
+            return chem
+        else:
+            return -1

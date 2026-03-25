@@ -1,0 +1,21 @@
+class Solution(object):
+    def maxVowels(self, s, k):
+        """
+        :type s: str
+        :type k: int
+        :rtype: int
+        """
+        ans = 0
+        cpt = 0
+        vo = "aeiou"
+        for i in range(k):
+            if s[i] in vo:
+                cpt += 1
+        ans = cpt        
+        for i in range(1, len(s) - k + 1):
+            if s[i-1] in vo:
+                cpt -= 1  
+            if s[i+k-1] in vo:
+                cpt += 1
+            ans = max(ans, cpt)
+        return ans

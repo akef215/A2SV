@@ -1,0 +1,17 @@
+class Solution(object):
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        cpt = 0
+        diff = []
+        for i in range(len(nums)):
+            if nums[i] != val:
+                cpt += 1
+                diff.append(nums[i])
+        for i in range(cpt):
+            nums[i] = diff[i]            
+        return cpt        
+                

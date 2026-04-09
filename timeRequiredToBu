@@ -1,0 +1,20 @@
+class Solution(object):
+    def timeRequiredToBuy(self, tickets, k):
+        """
+        :type tickets: List[int]
+        :type k: int
+        :rtype: int
+        """
+        t = 0
+        while tickets[k] > 0:
+            tickets[0] -= 1
+            t += 1
+            if k == 0 and tickets[k] == 0:
+                break
+            v = tickets.pop(0)
+            if v != 0:
+                tickets.append(v)
+      
+            k = (k - 1) % len(tickets)
+        return t 
+        

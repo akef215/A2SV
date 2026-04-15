@@ -1,0 +1,6 @@
+from math import sqrt
+class Solution:
+    def fib(self, n: int) -> int:
+        golden_ratio = (1 + sqrt(5)) / 2
+        golden_ratio_ = (1 - sqrt(5)) / 2
+        return int((golden_ratio ** n - golden_ratio_ ** n) / sqrt(5))

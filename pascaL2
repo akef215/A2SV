@@ -1,0 +1,12 @@
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        ans = [[1]]
+        prev = [1]
+        for i in range(rowIndex):
+            sub = [1]
+            for j in range(i):
+                sub.append(prev[j+1] + prev[j])
+            sub.append(1)
+            ans.append(sub)
+            prev = sub
+        return ans[-1]        

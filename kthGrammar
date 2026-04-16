@@ -1,0 +1,15 @@
+class Solution:
+    def kthGrammar(self, n: int, k: int) -> int:
+        return self.kth_grammer_helper(n, k)
+
+    def kth_grammer_helper(self, n: int, k: int) -> int:
+        if n == 1:
+            return 0
+
+        size = 2 ** (n-1)
+        mid = size // 2
+
+        if k <= mid:
+            return self.kth_grammer_helper(n-1, k)
+        else:
+            return 1 if self.kth_grammer_helper(n-1, k - mid) == 0 else 0

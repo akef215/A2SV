@@ -1,0 +1,13 @@
+class Solution:
+    def maxWidthRamp(self, nums: List[int]) -> int:
+        n = len(nums)
+        srt = sorted(range(n), key=lambda i: nums[i])
+        
+        mi = float('inf')
+        res = 0
+
+        for x in srt:
+            res = max(res, x - mi)
+            mi = min(mi, x)
+
+        return res        

@@ -1,0 +1,14 @@
+class Solution:
+    def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
+        start_index={}
+        for i,(s,e) in enumerate(intervals):
+            start_index[s]=i
+        sorted_start=sorted(start_index.keys())
+        result=[]
+        for s,e in intervals:
+            idx=bisect.bisect_left(sorted_start,e)
+            if idx==len(sorted_start):
+                result.append(-1)
+            else:
+                result.append(start_index[sorted_start[idx]])
+        return result        

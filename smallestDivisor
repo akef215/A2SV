@@ -1,0 +1,19 @@
+class Solution:
+    def smallestDivisor(self, nums: List[int], threshold: int) -> int:
+        l ,r = 1, max(nums)
+        while l < r:
+            mid = l + (r - l) // 2
+            currD = self.findD(mid, nums, threshold)
+            if (currD):
+                r = mid 
+            else: 
+                l = mid + 1
+        return l
+
+    
+    
+    def findD(self, mid, nums, threshold):
+        res = 0
+        for i in nums:
+            res += math.ceil(i / mid)
+        return res <= threshold        
